@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+    py:        
+        build:
+            context: .
+        volumes:
+            - ./:/app/
+        environment:
+            ENCRYPT_STATE: ${ENCRYPT_STATE}
+            RSS: ${RSS}
+            WEBHOOK: ${WEBHOOK}
+            DEBUG: ${DEBUG}
