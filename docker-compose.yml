@@ -1,8 +1,7 @@
 version: "3.3"
 services:
-    py:        
-        build:
-            context: .
+    rdh:        
+        image: ghcr.io/khlam/rss-discord-webhook/rdh:latest
         volumes:
             - ./:/app/
         environment:
