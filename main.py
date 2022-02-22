@@ -40,13 +40,17 @@ def decode_base64(s):
     return _s
 
 # Get env variables
-debug =  os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
+try:
+    debug =  os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
 
-key = os.getenv("ENCRYPT_STATE").lower()
+    key = os.getenv("ENCRYPT_STATE").lower()
 
-rss_url = decode_base64(os.getenv("RSS"))
+    rss_url = decode_base64(os.getenv("RSS"))
 
-webhook_url = decode_base64(os.getenv("WEBHOOK"))
+    webhook_url = decode_base64(os.getenv("WEBHOOK"))
+except:
+    print("ENV var missing.")
+    quit(0)
 
 # generate key if false
 if key == 'false' and debug == True:

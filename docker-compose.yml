@@ -2,10 +2,11 @@ version: "3.3"
 services:
     rdh:        
         image: ghcr.io/khlam/rss-discord-webhook/rdh:latest
+        #build: .
         volumes:
             - ./:/app/
         environment:
-            ENCRYPT_STATE: ${ENCRYPT_STATE}
-            RSS: ${RSS}
-            WEBHOOK: ${WEBHOOK}
-            DEBUG: ${DEBUG}
+            ENCRYPT_STATE: #${ENCRYPT_STATE}
+            RSS: #${RSS}
+            WEBHOOK: #${WEBHOOK}
+            DEBUG: #${DEBUG}
