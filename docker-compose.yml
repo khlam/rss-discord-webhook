@@ -6,7 +6,7 @@ services:
         volumes:
             - ./:/app/
         environment:
-            ENCRYPT_STATE: #${ENCRYPT_STATE}
-            RSS: #${RSS}
-            WEBHOOK: #${WEBHOOK}
-            DEBUG: #${DEBUG}
+            ENCRYPT_STATE: ${ENCRYPT_STATE}
+            RSS: ${RSS}
+            WEBHOOK: ${WEBHOOK}
+            DEBUG: ${DEBUG}

