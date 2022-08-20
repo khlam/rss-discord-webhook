@@ -41,21 +41,21 @@ def decode_base64(s):
 
 # Get env variables
 try:
-    debug =  os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
+    debug = os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
 
     key = os.getenv("ENCRYPT_STATE").lower()
 
-    rss_url = decode_base64(os.getenv("RSS"))
+    rss_url = os.getenv("RSS")
 
-    webhook_url = decode_base64(os.getenv("WEBHOOK"))
+    webhook_url = os.getenv("WEBHOOK")
 except:
     print("ENV var missing.")
     quit(0)
 
 # generate key if false
-if key == 'false' and debug == True:
-    print(Fernet.generate_key())
-    assert False
+#if key == 'false' and debug == True:
+#print(Fernet.generate_key())
+#assert False
 
 f = Fernet(key)
 
@@ -79,7 +79,7 @@ for i, e in enumerate(od):
 
 if os.path.isfile('state.pkl') == False: # if state pickle does not exist, create it and quit
     with open('state.pkl', 'wb') as _f:
-        pickle.dump(e_state, _f)
+        pickle.dump([], _f)
         print("No state.pkl found, created new state.pkl")
         quit(0)
 else:
@@ -115,7 +115,8 @@ for row in my_state:
             else:
                 print("Pushed")
         except:
-            print("Failed to push", row['url'])
+            print("Failed to push")
+            #print("Failed to push", row['url'])
             pass
 
 if new_pushed == True:
